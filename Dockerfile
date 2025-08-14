@@ -1,5 +1,8 @@
-# Use official Odoo 18 image
-FROM odoo:18.0
+# Use the nightly Odoo 18 image (Debian-based)
+FROM odoo:18
 
-# (Optional) Copy custom addons if you have any
-# COPY ./addons /mnt/extra-addons
+# Copy our small config file into the image
+COPY odoo.conf /etc/odoo/odoo.conf
+
+# Expose the port Odoo listens on
+EXPOSE 8069
